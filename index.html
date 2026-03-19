@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>个人简历</title>
+    <title>运维工程师</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <script>
@@ -29,6 +29,65 @@
             .transition-all-300 {
                 transition: all 300ms ease-in-out;
             }
+            .animate-fade-in {
+                animation: fadeIn 0.6s ease-in-out;
+            }
+            .animate-slide-up {
+                animation: slideUp 0.8s ease-out;
+            }
+            .skill-bar {
+                height: 8px;
+                border-radius: 4px;
+                background-color: #e5e7eb;
+                overflow: hidden;
+            }
+            .skill-progress {
+                height: 100%;
+                border-radius: 4px;
+                background-color: #3b82f6;
+                transition: width 1.5s ease-out;
+            }
+            .bg-gradient-primary {
+                background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            }
+            .card-hover {
+                transition: all 0.3s ease;
+            }
+            .card-hover:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.1), 0 8px 10px -6px rgba(59, 130, 246, 0.1);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
@@ -73,9 +132,9 @@
     <!-- 个人信息 -->
     <section id="about" class="py-16 bg-white">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold mb-10 text-center">个人信息</h2>
+            <h2 class="text-3xl font-bold mb-10 text-center scroll-reveal">个人信息</h2>
             <div class="grid md:grid-cols-2 gap-8">
-                <div class="bg-secondary p-6 rounded-lg shadow-sm">
+                <div class="bg-secondary p-6 rounded-lg shadow-sm card-hover scroll-reveal">
                     <h3 class="text-xl font-semibold mb-4 text-primary">基本信息</h3>
                     <ul class="space-y-3">
                         <li class="flex items-center">
@@ -96,12 +155,12 @@
                         </li>
                     </ul>
                 </div>
-                <div class="bg-secondary p-6 rounded-lg shadow-sm">
+                <div class="bg-secondary p-6 rounded-lg shadow-sm card-hover scroll-reveal">
                     <h3 class="text-xl font-semibold mb-4 text-primary">求职意向</h3>
                     <ul class="space-y-3">
                         <li class="flex items-start">
                             <i class="fa fa-briefcase text-primary mr-3 mt-1"></i>
-                            <span>职位: 网络管理员, Python, 运维工程师, 运维开发工程师, 系统工程师, IT技术支持, 自然语言处理</span>
+                            <span>职位:  运维工程师, 运维开发工程师, 系统工程师, IT技术支持</span>
                         </li>
                         <li class="flex items-center">
                             <i class="fa fa-money text-primary mr-3"></i>
@@ -118,9 +177,12 @@
                     </ul>
                 </div>
             </div>
-            <div class="mt-8 bg-secondary p-6 rounded-lg shadow-sm">
+            <div class="mt-8 bg-secondary p-6 rounded-lg shadow-sm card-hover scroll-reveal">
                 <h3 class="text-xl font-semibold mb-4 text-primary">个人优势</h3>
-                <p class="text-gray-700">专业方向是云计算方向，勤奋好学, 上进心强, 服从组织, 踏实肯干, 责任心强。</p>
+                <p class="text-gray-700">具备扎实的云计算运维技术能力。
+在校期间获1+x云计算运维中级工程师、重庆市云计算赛项技能大赛三等奖及重庆市区块链技术应用大赛二等奖，展现专业实践与竞赛实力。熟练掌握Linux系统、Nginx、Zabbix、Redis等服务搭建与优化，熟练使用Python、Shell开发自动化脚本，熟悉Docker容器化部署及K8s操作。
+
+拥有一年零6个月运维工程师工作经验，主导过日志收集与分析系统搭建、商城部署上线等项目，通过ELK实现多服务器日志管理，通过容器技术构建商城项目并确保高可用。具备企业级运维场景快速适应能力，熟悉Ansible自动化运维及ELK日志分析工具。</p>
             </div>
         </div>
     </section>
@@ -128,38 +190,87 @@
     <!-- 技能 -->
     <section id="skills" class="py-16 bg-gray-50">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold mb-10 text-center">技能</h2>
+            <h2 class="text-3xl font-bold mb-10 text-center scroll-reveal">技能</h2>
             <div class="grid md:grid-cols-2 gap-8">
-                <div class="bg-white p-6 rounded-lg shadow-sm">
+                <div class="bg-white p-6 rounded-lg shadow-sm card-hover scroll-reveal">
                     <h3 class="text-xl font-semibold mb-4 text-primary flex items-center">
                         <i class="fa fa-server mr-2"></i> 操作系统
                     </h3>
                     <ul class="space-y-2 text-gray-700">
-                        <li>• 熟练使用Linux(CentOS/Ubuntu)系统</li>
-                        <li>• 熟悉Nginx、Zabbix、Redis等服务搭建与优化</li>
+                        <li>• 使用Linux(CentOS/Ubuntu)系统，所使用系统均采用最小化方式进行安装，对Linux命令比较熟练</li>
+                        <li>• 掌握并配置Nginx反向代理，用nginx做负载均衡、使用Zabbix监控系统实施跟进服务状态，等服务搭建与优化</li>
                         <li>• 熟悉Windows Server域服务(AD、DNS、DHCP)及证书服务配置</li>
                     </ul>
+                    <div class="mt-4">
+                        <div class="flex justify-between text-sm mb-1">
+                            <span>Linux系统</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="90%"></div>
+                        </div>
+                        <div class="flex justify-between text-sm mb-1 mt-3">
+                            <span>Windows Server</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="75%"></div>
+                        </div>
+                    </div>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-sm">
+                <div class="bg-white p-6 rounded-lg shadow-sm card-hover scroll-reveal">
                     <h3 class="text-xl font-semibold mb-4 text-primary flex items-center">
                         <i class="fa fa-code mr-2"></i> 脚本开发
                     </h3>
                     <ul class="space-y-2 text-gray-700">
-                        <li>• 熟练使用Python、Shell脚本开发自动化运维脚本</li>
-                        <li>• 熟悉PowerShell, 能够编写Windows批处理脚本</li>
+                        <li>• 掌握Python、Shell脚本开发自动化运维脚本，能够根据需求快速实现运维任务</li>
+                        <li>• 能够调用特定的python模块如paramiko,psutil,os,subprocess等，编写自动化脚本完成对服务的安装比如nginx，ftp，mysql等自动化安装脚本</li>
+                        <li>• 可根据zabbix提供的api文档，编写python脚本实现对zabbix的监控数据采集与处理，可实现shell脚本编写实现zabbix自定义监控项配置</li>
                     </ul>
+                    <div class="mt-4">
+                        <div class="flex justify-between text-sm mb-1">
+                            <span>Python</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="85%"></div>
+                        </div>
+                        <div class="flex justify-between text-sm mb-1 mt-3">
+                            <span>Shell</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="80%"></div>
+                        </div>
+                    </div>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-sm">
+                <div class="bg-white p-6 rounded-lg shadow-sm card-hover scroll-reveal">
                     <h3 class="text-xl font-semibold mb-4 text-primary flex items-center">
                         <i class="fa fa-cloud mr-2"></i> 云与容器
                     </h3>
                     <ul class="space-y-2 text-gray-700">
-                        <li>• 了解AWS EC2/S3云服务</li>
-                        <li>• 熟悉Docker容器化部署及K8s操作</li>
-                        <li>• 熟悉devops工具链</li>
+                        <li>• 了解AWS EC2/S3云服务，对阿里云，华为云等云服务有基本包括云服务器，vpc，oss等服务的使用经验</li>
+                        <li>• 熟悉Docker容器化部署及K8s操作，能够根据需求快速构建镜像容器化应用，管理容器集群，监控容器状态</li>
+                        <li>• 独立完成devops工具链的部署与维护，能够根据实际的需求编写Jenkins管道，实现自动化构建、测试、部署等流程</li>
                     </ul>
+                    <div class="mt-4">
+                        <div class="flex justify-between text-sm mb-1">
+                            <span>Docker</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="85%"></div>
+                        </div>
+                        <div class="flex justify-between text-sm mb-1 mt-3">
+                            <span>Kubernetes</span>
+                            <span>70%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="70%"></div>
+                        </div>
+                    </div>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-sm">
+                <div class="bg-white p-6 rounded-lg shadow-sm card-hover scroll-reveal">
                     <h3 class="text-xl font-semibold mb-4 text-primary flex items-center">
                         <i class="fa fa-wifi mr-2"></i> 网络基础
                     </h3>
@@ -168,8 +279,24 @@
                         <li>• 了解HTTPS、FTP等应用层协议</li>
                         <li>• 能够使用Wireshark进行抓包分析</li>
                     </ul>
+                    <div class="mt-4">
+                        <div class="flex justify-between text-sm mb-1">
+                            <span>网络协议</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="75%"></div>
+                        </div>
+                        <div class="flex justify-between text-sm mb-1 mt-3">
+                            <span>网络故障排查</span>
+                            <span>70%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="70%"></div>
+                        </div>
+                    </div>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-sm md:col-span-2">
+                <div class="bg-white p-6 rounded-lg shadow-sm md:col-span-2 card-hover scroll-reveal">
                     <h3 class="text-xl font-semibold mb-4 text-primary flex items-center">
                         <i class="fa fa-tools mr-2"></i> 工具使用
                     </h3>
@@ -179,6 +306,44 @@
                         <li>• 熟悉云原生技术栈, 对自动化运维与高可用架构设计有实践热情</li>
                         <li>• 在网络安全层面，根据业务需求和安全规范，制定并优化防火墙访问策略，端口过滤、黑白名单设置、流量管控</li>
                     </ul>
+                    <div class="mt-4 grid grid-cols-2 gap-4">
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span>Ansible</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="80%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span>ELK Stack</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="75%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span>Zabbix</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span>Jenkins</span>
+                                <span>70%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="70%"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -187,9 +352,75 @@
     <!-- 工作经历 -->
     <section id="experience" class="py-16 bg-white">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold mb-10 text-center">工作经历</h2>
-            <div class="bg-secondary p-6 rounded-lg shadow-sm">
-                <p class="text-gray-700 text-center">暂无工作经历，应届毕业生</p>
+            <h2 class="text-3xl font-bold mb-10 text-center scroll-reveal">工作经历</h2>
+            <div class="space-y-8">
+                <!-- 重庆鹄泽科技有限公司 -->
+                <div class="bg-secondary p-6 rounded-lg shadow-sm card-hover scroll-reveal">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
+                        <h3 class="text-xl font-semibold text-primary">重庆鹄泽科技有限公司</h3>
+                        <span class="text-gray-500 text-sm">2024-11 至 2026-03</span>
+                    </div>
+                    <div class="mb-4">
+                        <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">运维工程师（全职）</span>
+                    </div>
+                    <ul class="space-y-4">
+                        <li class="flex">
+                            <span class="text-primary mr-2 mt-1"><i class="fa fa-check-circle"></i></span>
+                            <div>
+                                <p class="font-medium text-gray-800">网络拓扑规划与设备配置管理</p>
+                                <p class="text-gray-600 text-sm mt-1">在网络安全层面，根据业务需求和安全规范，制定并优化防火墙访问策略，端口过滤、黑白名单设置、流量管控等。同时，负责（金蝶云星空，WMS）系统的稳定运行维护，该系统作为公司财务、供应链等核心业务的支撑平台，及时处理系统登录异常、数据同步失败、业务数据库异常等问题。</p>
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <span class="text-primary mr-2 mt-1"><i class="fa fa-check-circle"></i></span>
+                            <div>
+                                <p class="font-medium text-gray-800">Zabbix 监控平台部署与运维自动告警实现</p>
+                                <p class="text-gray-600 text-sm mt-1">自主完成 zabbix 运维监控平台的部署与搭建工作，在公司服务器、网络设备、业务系统（如金蝶云星空）等关键节点部署监控代理，实现对设备 CPU 使用率、内存占用、磁盘空间、网络带宽进行实时监控。通过邮件发送告警信息，大幅缩短故障排查与恢复时间，降低因设备或系统故障对公司业务造成的影响。</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- 重庆峻凌电子有限公司 -->
+                <div class="bg-secondary p-6 rounded-lg shadow-sm card-hover scroll-reveal">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
+                        <h3 class="text-xl font-semibold text-primary">重庆峻凌电子有限公司</h3>
+                        <span class="text-gray-500 text-sm">2023-07 至 2023-10</span>
+                    </div>
+                    <div class="mb-4">
+                        <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">运维实习生</span>
+                    </div>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2 mt-1"><i class="fa fa-check"></i></span>
+                            <span>负责协议服务器的上架流程及操作系统的安装与配置</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2 mt-1"><i class="fa fa-check"></i></span>
+                            <span>利用Python编写自动化脚本，提高日常任务执行效率</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2 mt-1"><i class="fa fa-check"></i></span>
+                            <span>平台部署:完成云实例，云网络，安全组，云存储的的搭建，组建成一个完整的云计算资源平台</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2 mt-1"><i class="fa fa-check"></i></span>
+                            <span>编写dockerfile文件构建镜像，配置mysql，nginx服务</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2 mt-1"><i class="fa fa-check"></i></span>
+                            <span>使用容器编排技术，运行kafka，nginx，redis，mysql容器构建商城项目</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2 mt-1"><i class="fa fa-check"></i></span>
+                            <span>使用Prometheus监控工具来监控商城系统的运行状态和性能指标</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2 mt-1"><i class="fa fa-check"></i></span>
+                            <span>定期进行数据备份和安全检查，确保商城的稳定运行和安全状态</span>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
@@ -197,8 +428,8 @@
     <!-- 联系方式 -->
     <section id="contact" class="py-16 bg-gray-50">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold mb-10 text-center">联系方式</h2>
-            <div class="bg-white p-8 rounded-lg shadow-sm max-w-md mx-auto">
+            <h2 class="text-3xl font-bold mb-10 text-center scroll-reveal">联系方式</h2>
+            <div class="bg-white p-8 rounded-lg shadow-sm max-w-md mx-auto card-hover scroll-reveal">
                 <div class="space-y-4">
                     <div class="flex items-center">
                         <i class="fa fa-phone text-primary text-2xl mr-4"></i>
@@ -270,6 +501,68 @@
             } else {
                 nav.classList.add('bg-white');
                 nav.classList.remove('bg-white/95', 'backdrop-blur-sm');
+            }
+        });
+
+        // 滚动显示效果
+        function handleScrollReveal() {
+            const elements = document.querySelectorAll('.scroll-reveal');
+            const windowHeight = window.innerHeight;
+            
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < windowHeight - elementVisible) {
+                    element.classList.add('active');
+                }
+            });
+        }
+
+        // 初始检查
+        window.addEventListener('load', handleScrollReveal);
+        // 滚动时检查
+        window.addEventListener('scroll', handleScrollReveal);
+
+        // 数字动画效果
+        function animateValue(id, start, end, duration) {
+            const obj = document.getElementById(id);
+            if (!obj) return;
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                obj.innerHTML = Math.floor(progress * (end - start) + start);
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+
+        // 技能条动画
+        function animateSkillBars() {
+            const skillBars = document.querySelectorAll('.skill-progress');
+            skillBars.forEach(bar => {
+                const width = bar.dataset.width;
+                if (width) {
+                    setTimeout(() => {
+                        bar.style.width = width;
+                    }, 300);
+                }
+            });
+        }
+
+        // 监听滚动到技能部分
+        window.addEventListener('scroll', function() {
+            const skillsSection = document.getElementById('skills');
+            if (skillsSection) {
+                const rect = skillsSection.getBoundingClientRect();
+                if (rect.top <= window.innerHeight * 0.7) {
+                    animateSkillBars();
+                    // 只执行一次
+                    window.removeEventListener('scroll', arguments.callee);
+                }
             }
         });
     </script>
