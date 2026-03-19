@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人简历</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3b82f6',
+                        secondary: '#f3f4f6',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                },
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+            }
+            .transition-all-300 {
+                transition: all 300ms ease-in-out;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- 导航栏 -->
+    <nav class="bg-white shadow-md fixed w-full z-10">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#" class="text-xl font-bold text-primary">简历</a>
+            <div class="hidden md:flex space-x-6">
+                <a href="#about" class="text-gray-600 hover:text-primary transition-all-300">个人信息</a>
+                <a href="#skills" class="text-gray-600 hover:text-primary transition-all-300">技能</a>
+                <a href="#experience" class="text-gray-600 hover:text-primary transition-all-300">工作经历</a>
+                <a href="#contact" class="text-gray-600 hover:text-primary transition-all-300">联系方式</a>
+            </div>
+            <button class="md:hidden text-gray-600 focus:outline-none" id="menu-toggle">
+                <i class="fa fa-bars text-xl"></i>
+            </button>
+        </div>
+        <!-- 移动端菜单 -->
+        <div class="md:hidden hidden bg-white shadow-lg absolute w-full" id="mobile-menu">
+            <div class="container mx-auto px-4 py-2 flex flex-col space-y-3">
+                <a href="#about" class="text-gray-600 hover:text-primary py-2 transition-all-300">个人信息</a>
+                <a href="#skills" class="text-gray-600 hover:text-primary py-2 transition-all-300">技能</a>
+                <a href="#experience" class="text-gray-600 hover:text-primary py-2 transition-all-300">工作经历</a>
+                <a href="#contact" class="text-gray-600 hover:text-primary py-2 transition-all-300">联系方式</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 头部区域 -->
+    <header class="pt-24 pb-16 bg-gradient-to-r from-primary to-blue-600 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4 text-shadow">WWL</h1>
+            <p class="text-xl md:text-2xl mb-6">云计算方向 | 运维工程师</p>
+            <div class="flex justify-center space-x-4 mb-8">
+                <a href="#contact" class="bg-white text-primary px-6 py-2 rounded-full font-medium hover:bg-opacity-90 transition-all-300">联系我</a>
+                <a href="#skills" class="border-2 border-white text-white px-6 py-2 rounded-full font-medium hover:bg-white hover:text-primary transition-all-300">查看技能</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 个人信息 -->
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-10 text-center">个人信息</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-secondary p-6 rounded-lg shadow-sm">
+                    <h3 class="text-xl font-semibold mb-4 text-primary">基本信息</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center">
+                            <i class="fa fa-user-circle text-primary mr-3"></i>
+                            <span>姓名: WWL</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa fa-calendar text-primary mr-3"></i>
+                            <span>年龄: 24岁</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa fa-graduation-cap text-primary mr-3"></i>
+                            <span>学历: 本科</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa fa-map-marker text-primary mr-3"></i>
+                            <span>所在地: 重庆</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-secondary p-6 rounded-lg shadow-sm">
+                    <h3 class="text-xl font-semibold mb-4 text-primary">求职意向</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fa fa-briefcase text-primary mr-3 mt-1"></i>
+                            <span>职位: 网络管理员, Python, 运维工程师, 运维开发工程师, 系统工程师, IT技术支持, 自然语言处理</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa fa-money text-primary mr-3"></i>
+                            <span>薪资要求: 7000及以上</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa fa-map-marker text-primary mr-3"></i>
+                            <span>工作地点: 重庆-主城区; 杭州市</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa fa-industry text-primary mr-3"></i>
+                            <span>行业: 互联网, IT服务/系统集成/物联网, 人工智能</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-8 bg-secondary p-6 rounded-lg shadow-sm">
+                <h3 class="text-xl font-semibold mb-4 text-primary">个人优势</h3>
+                <p class="text-gray-700">专业方向是云计算方向，勤奋好学, 上进心强, 服从组织, 踏实肯干, 责任心强。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 技能 -->
+    <section id="skills" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-10 text-center">技能</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <h3 class="text-xl font-semibold mb-4 text-primary flex items-center">
+                        <i class="fa fa-server mr-2"></i> 操作系统
+                    </h3>
+                    <ul class="space-y-2 text-gray-700">
+                        <li>• 熟练使用Linux(CentOS/Ubuntu)系统</li>
+                        <li>• 熟悉Nginx、Zabbix、Redis等服务搭建与优化</li>
+                        <li>• 熟悉Windows Server域服务(AD、DNS、DHCP)及证书服务配置</li>
+                    </ul>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <h3 class="text-xl font-semibold mb-4 text-primary flex items-center">
+                        <i class="fa fa-code mr-2"></i> 脚本开发
+                    </h3>
+                    <ul class="space-y-2 text-gray-700">
+                        <li>• 熟练使用Python、Shell脚本开发自动化运维脚本</li>
+                        <li>• 熟悉PowerShell, 能够编写Windows批处理脚本</li>
+                    </ul>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <h3 class="text-xl font-semibold mb-4 text-primary flex items-center">
+                        <i class="fa fa-cloud mr-2"></i> 云与容器
+                    </h3>
+                    <ul class="space-y-2 text-gray-700">
+                        <li>• 了解AWS EC2/S3云服务</li>
+                        <li>• 熟悉Docker容器化部署及K8s操作</li>
+                        <li>• 熟悉devops工具链</li>
+                    </ul>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <h3 class="text-xl font-semibold mb-4 text-primary flex items-center">
+                        <i class="fa fa-wifi mr-2"></i> 网络基础
+                    </h3>
+                    <ul class="space-y-2 text-gray-700">
+                        <li>• 熟悉TCP/IP协议</li>
+                        <li>• 了解HTTPS、FTP等应用层协议</li>
+                        <li>• 能够使用Wireshark进行抓包分析</li>
+                    </ul>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-sm md:col-span-2">
+                    <h3 class="text-xl font-semibold mb-4 text-primary flex items-center">
+                        <i class="fa fa-tools mr-2"></i> 工具使用
+                    </h3>
+                    <ul class="space-y-2 text-gray-700">
+                        <li>• 熟悉Ansible自动化运维工具, 了解Git版本控制</li>
+                        <li>• 熟悉ELK(Elasticsearch、Logstash、Kibana)日志收集与分析</li>
+                        <li>• 熟悉云原生技术栈, 对自动化运维与高可用架构设计有实践热情</li>
+                        <li>• 在网络安全层面，根据业务需求和安全规范，制定并优化防火墙访问策略，端口过滤、黑白名单设置、流量管控</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 工作经历 -->
+    <section id="experience" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-10 text-center">工作经历</h2>
+            <div class="bg-secondary p-6 rounded-lg shadow-sm">
+                <p class="text-gray-700 text-center">暂无工作经历，应届毕业生</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系方式 -->
+    <section id="contact" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-10 text-center">联系方式</h2>
+            <div class="bg-white p-8 rounded-lg shadow-sm max-w-md mx-auto">
+                <div class="space-y-4">
+                    <div class="flex items-center">
+                        <i class="fa fa-phone text-primary text-2xl mr-4"></i>
+                        <span class="text-gray-700">000000000000</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fa fa-envelope text-primary text-2xl mr-4"></i>
+                        <span class="text-gray-700">00000000000@163.com</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fa fa-map-marker text-primary text-2xl mr-4"></i>
+                        <span class="text-gray-700">重庆</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p class="mb-4">个人简历网站</p>
+            <div class="flex justify-center space-x-4">
+                <a href="#" class="text-white hover:text-primary transition-all-300">
+                    <i class="fa fa-github text-xl"></i>
+                </a>
+                <a href="#" class="text-white hover:text-primary transition-all-300">
+                    <i class="fa fa-linkedin text-xl"></i>
+                </a>
+                <a href="#" class="text-white hover:text-primary transition-all-300">
+                    <i class="fa fa-weixin text-xl"></i>
+                </a>
+            </div>
+            <p class="mt-4 text-gray-400">© 2024 个人简历</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // 移动端菜单切换
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    // 关闭移动端菜单
+                    document.getElementById('mobile-menu').classList.add('hidden');
+                }
+            });
+        });
+
+        // 滚动时导航栏样式变化
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-white/95', 'backdrop-blur-sm');
+                nav.classList.remove('bg-white');
+            } else {
+                nav.classList.add('bg-white');
+                nav.classList.remove('bg-white/95', 'backdrop-blur-sm');
+            }
+        });
+    </script>
+</body>
+</html>
