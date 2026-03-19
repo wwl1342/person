@@ -1,11 +1,19 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>运维工程师</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>运维工程师</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        <!-- Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-XXXXXXXXXX');
+        </script>
     <script>
         tailwind.config = {
             theme: {
@@ -720,6 +728,50 @@
 
     <!-- JavaScript -->
     <script>
+        // 网站访问统计
+        (function() {
+            // 存储访问信息
+            const visitsKey = 'resume_visits';
+            const visitorsKey = 'resume_visitors';
+            
+            // 获取当前访问时间
+            const now = new Date();
+            const visitTime = now.toISOString();
+            
+            // 获取访问者信息
+            const visitorInfo = {
+                time: visitTime,
+                userAgent: navigator.userAgent,
+                language: navigator.language,
+                screenSize: `${window.screen.width}x${window.screen.height}`,
+                referrer: document.referrer
+            };
+            
+            // 获取现有访问数据
+            let visits = JSON.parse(localStorage.getItem(visitsKey)) || [];
+            let visitors = JSON.parse(localStorage.getItem(visitorsKey)) || [];
+            
+            // 添加新访问记录
+            visits.push(visitorInfo);
+            visitors.push({
+                time: visitTime,
+                userAgent: navigator.userAgent,
+                referrer: document.referrer
+            });
+            
+            // 保存到localStorage
+            localStorage.setItem(visitsKey, JSON.stringify(visits));
+            localStorage.setItem(visitorsKey, JSON.stringify(visitors));
+            
+            // 在控制台显示访问统计
+            console.log('=== 网站访问统计 ===');
+            console.log(`总访问次数: ${visits.length}`);
+            console.log(`总访问人数: ${visitors.length}`);
+            console.log('最近访问记录:');
+            console.log(visits.slice(-5)); // 显示最近5条访问记录
+            console.log('====================');
+        })();
+        
         // 移动端菜单切换
         document.getElementById('menu-toggle').addEventListener('click', function() {
             const mobileMenu = document.getElementById('mobile-menu');
